@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  postgres_cadastro:
+    container_name: postgres_customer
+    image: debezium/example-postgres
+    environment:
+      POSTGRES_USER: customer
+      POSTGRES_PASSWORD: customer
+    ports:
+      - "5432:5432"
