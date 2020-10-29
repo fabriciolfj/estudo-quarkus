@@ -10,5 +10,8 @@
 ###### Empacotar em código nativo
 - mvn package -Pnative -Dquarkus.native.container-build=true
 
-##### Subindo a aplicação
+###### Subindo a aplicação
 - mvn quarkus:dev
+
+###### Adicionando uma nova depêndencia
+- mvn quarkus:add-extension -Dextensions="quarkus-undertow-websockets"
