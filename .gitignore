@@ -4,3 +4,5 @@ hello-okd/target/classes/
 *.jar
 
 hello-okd/target/
+
+.idea/
