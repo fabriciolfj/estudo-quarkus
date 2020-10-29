@@ -9,3 +9,6 @@
 
 ###### Empacotar em código nativo
 - mvn package -Pnative -Dquarkus.native.container-build=true
+
+##### Subindo a aplicação
+- mvn quarkus:dev
