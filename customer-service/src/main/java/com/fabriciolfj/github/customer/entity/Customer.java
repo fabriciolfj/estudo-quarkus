@@ -1,5 +1,6 @@
 package com.fabriciolfj.github.customer.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,6 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 //@Cacheable
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +16,7 @@ import java.util.List;
 @NamedQuery(name = "Customers.findAll",
             query = "Select c FROM Customer c ORDER By c.id",
             hints = @QueryHint(name = "org.hibernate.cacheable", value = "true")) //o query hint, fazo uso no cache quando habilitado
-public class Customer {
+public class Customer extends PanacheEntityBase {
 
     @Id
     @SequenceGenerator(
@@ -26,13 +26,13 @@ public class Customer {
             initialValue = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerSequence")
-    private Long id;
+    public Long id;
 
     @Column(length = 40)
-    private String name;
+    public String name;
 
     @Column(length = 40)
-    private String surname;
+    public String surname;
 
     @OneToMany(mappedBy = "customer")
     @JsonbTransient

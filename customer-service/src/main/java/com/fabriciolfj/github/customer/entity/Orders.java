@@ -1,5 +1,6 @@
 package com.fabriciolfj.github.customer.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +9,11 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o WHERE o.customer.id = :customerId ORDER BY o.item")
-public class Orders {
+public class Orders extends PanacheEntityBase {
 
     @Id
     @SequenceGenerator(
@@ -29,7 +29,7 @@ public class Orders {
     public String item;
 
     @Column(length = 40)
-    private BigDecimal price;
+    public BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
