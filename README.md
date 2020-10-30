@@ -19,3 +19,8 @@
 
 ###### Cache hibernate
 - Podemos cachear as entidades, colocando sobre as mesmas @Cacheable e hints, que são utilizados dentro do cache (para normeação).
+
+###### Panache
+Existem 2 formas de uso do panache:
+- Extender a classe PanacheEntity, para uso mais simples
+- Extender a classe PanacheEntityBase, caso queria customizar a geração od id.
