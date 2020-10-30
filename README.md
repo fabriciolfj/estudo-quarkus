@@ -12,7 +12,7 @@
 
 ###### Subindo a aplicação
 - mvn quarkus:dev
-- mvn quarkus:dev -Ddebug=true
+- mvn quarkus:dev -Ddebug=true (precisa atachar o processo na ide)
 
 ###### Adicionando uma nova depêndencia
 - mvn quarkus:add-extension -Dextensions="quarkus-undertow-websockets"
