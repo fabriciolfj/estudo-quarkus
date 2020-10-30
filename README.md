@@ -16,3 +16,6 @@
 
 ###### Adicionando uma nova depêndencia
 - mvn quarkus:add-extension -Dextensions="quarkus-undertow-websockets"
+
+###### Cache hibernate
+- Podemos cachear as entidades, colocando sobre as mesmas @Cacheable e hints, que são utilizados dentro do cache (para normeação).
