@@ -1,11 +1,11 @@
 # Estudo sobre o quarkus
 
 ###### Após baixar o graalvm, crie a variável de ambiente abaixo:
-´´´
+```
 GRAALVM_HOME=/home/spark/Documentos/graalvm-ce-java11-20.2.0
 export GRAALVM_HOME
 PATH="$GRAALVM_HOME/bin:$PATH"
-´´´
+```
 
 ###### Criando uma imagem nativa:
 - mvn package -Pnative
@@ -47,3 +47,4 @@ Existem 2 formas de uso do panache:
 
 ##### Definindo um objeto de compilação binário
 - oc new-build --binary --name=quarkus-hello-okd -l app=quarkus-hello-okd
+- para consultar: oc get bc
