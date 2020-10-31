@@ -42,6 +42,9 @@ Existem 2 formas de uso do panache:
 - minishift start
 - crie a váriavel de ambiente: export PATH=$PATH:/home/spark/.minishift/cache/oc/v3.11.0/linux
 
+##### Logando
+- oc login -u system:admin
+
 ##### Usando o registro do minishift
 - eval $(./minishift docker-env)
 
