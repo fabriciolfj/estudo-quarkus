@@ -48,3 +48,9 @@ Existem 2 formas de uso do panache:
 ##### Definindo um objeto de compilação binário
 - oc new-build --binary --name=quarkus-hello-okd -l app=quarkus-hello-okd
 - para consultar: oc get bc
+
+##### Definindo o local do dockerfile
+- oc patch bc/quarkus-hello-okd -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}
+
+##### Verificar o binário criado
+- oc describe bc/quarkus-hello-okd
