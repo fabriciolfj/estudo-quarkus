@@ -42,6 +42,9 @@ Existem 2 formas de uso do panache:
 - minishift start
 - crie a váriavel de ambiente: export PATH=$PATH:/home/spark/.minishift/cache/oc/v3.11.0/linux
 
+##### Usando o registro do minishift
+- eval $(./minishift docker-env)
+
 ##### Criando um namespace
 - oc new-project quarkus-hello-okd
 
@@ -58,3 +61,6 @@ Existem 2 formas de uso do panache:
 ##### Exemplo buildando o projeto e subindo para o minishift. (pega os dados da raiz, ou seja, execute dentro do seu projeto)
 - mvn package -Pnative
 - oc start-build quarkus-hello-okd --from-dir=. --follow
+
+##### Ver as imagens que estão no openshift
+- oc get is
