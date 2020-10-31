@@ -64,3 +64,6 @@ Existem 2 formas de uso do panache:
 
 ##### Ver as imagens que estão no openshift
 - oc get is
+
+##### Mudar de namespaces (no exemplo mudando para o namespace default)
+- oc project default
