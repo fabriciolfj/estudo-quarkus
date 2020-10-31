@@ -97,3 +97,7 @@ oc get is -n openshift | grep postgresql
 ```
 oc new-app -e POSTGRESQL_USER=quarkus -e POSTGRESQL_PASSWORD=quarkus -e POSTGRESQL_DATABASE=quarkusdb postgresql
 ```
+- Faça o build da aplicação
+```
+mvn package -Pnative
+```
