@@ -56,4 +56,5 @@ Existem 2 formas de uso do panache:
 - oc describe bc/quarkus-hello-okd
 
 ##### Exemplo buildando o projeto e subindo para o minishift. (pega os dados da raiz, ou seja, execute dentro do seu projeto)
+- mvn package -Pnative
 - oc start-build quarkus-hello-okd --from-dir=. --follow
