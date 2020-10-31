@@ -56,7 +56,7 @@ Existem 2 formas de uso do panache:
 - para consultar: oc get bc
 
 ##### Definindo o local do dockerfile
-- oc patch bc/quarkus-hello-okd -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}
+- oc patch bc/quarkus-hello-okd -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}'
 
 ##### Verificar o binário criado
 - oc describe bc/quarkus-hello-okd
