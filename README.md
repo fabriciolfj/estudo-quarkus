@@ -71,3 +71,13 @@ Existem 2 formas de uso do panache:
 ##### Mudar de namespaces (no exemplo mudando para o namespace default)
 - oc project default
 - oc get pods -n default -o wide (mostrar os detalhes dos pods do namespace default
+
+##### Imagem criada
+- oc get is
+
+##### Criar um aplicativo com base na imagem
+- oc new-app --image-stream=quarkus-hello-okd:latest
+
+##### Expondo o serviço da app criada
+- oc expose svc/quarkus-hello-okd
+- oc get route quarkus-hello-okd -o jsonpath --template="{.spec.host}" (pegando o endereço virtual)
