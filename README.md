@@ -1,5 +1,12 @@
 # Estudo sobre o quarkus
 
+###### Após baixar o graalvm, crie a variável de ambiente abaixo:
+```
+GRAALVM_HOME=/home/spark/Documentos/graalvm-ce-java11-20.2.0
+export GRAALVM_HOME
+PATH="$GRAALVM_HOME/bin:$PATH"
+```
+
 ###### Criando uma imagem nativa:
 - mvn package -Pnative
 
@@ -24,3 +31,64 @@
 Existem 2 formas de uso do panache:
 - Extender a classe PanacheEntity, para uso mais simples
 - Extender a classe PanacheEntityBase, caso queria customizar a geração od id.
+
+# Openshift
+
+##### Instalação do minishift no virtualbox
+- minishift config set vm-driver virtualbox
+- minishift config set disk-size 32G
+- minishift config set memory 4096
+- minishift config set openshift-version v3.11.0
+- minishift start
+- crie a váriavel de ambiente: export PATH=$PATH:/home/spark/.minishift/cache/oc/v3.11.0/linux
+
+##### Logando
+- oc login -u system:admin
+
+##### Usando o registro do minishift
+- eval $(./minishift docker-env)
+
+##### Criando um namespace
+- oc new-project quarkus-hello-okd
+
+##### Definindo um objeto de compilação binário
+- oc new-build --binary --name=quarkus-hello-okd -l app=quarkus-hello-okd
+- para consultar: oc get bc
+
+##### Definindo o local do dockerfile
+- oc patch bc/quarkus-hello-okd -p '{"spec":{"strategy":{"dockerStrategy":{"dockerfilePath":"src/main/docker/Dockerfile.native"}}}}'
+
+##### Verificar o binário criado
+- oc describe bc/quarkus-hello-okd
+
+##### Exemplo buildando o projeto e subindo para o minishift. (pega os dados da raiz, ou seja, execute dentro do seu projeto)
+- mvn package -Pnative
+- oc start-build quarkus-hello-okd --from-dir=. --follow
+
+##### Ver as imagens que estão no openshift
+- oc get is
+
+##### Mudar de namespaces (no exemplo mudando para o namespace default)
+- oc project default
+- oc get pods -n default -o wide (mostrar os detalhes dos pods do namespace default
+
+##### Imagem criada
+- oc get is
+
+##### Criar um aplicativo com base na imagem
+- oc new-app --image-stream=quarkus-hello-okd:latest
+
+##### Expondo o serviço da app criada
+- oc expose svc/quarkus-hello-okd
+- oc get route quarkus-hello-okd -o jsonpath --template="{.spec.host}" (pegando o endereço virtual)
+
+##### Endpotins relacionados a saúde da aplicação
+- http://localhost:8080/health/live
+- http://localhost:8080/health/ready
+
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-health</artifactId>
+</dependency>
+```
