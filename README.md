@@ -92,3 +92,11 @@ Existem 2 formas de uso do panache:
   <artifactId>quarkus-smallrye-health</artifactId>
 </dependency>
 ```
+
+##### Implementando tolerancia a falhas
+- Timeout: define um tempo para chamada do serviço
+- Fallback: providencia uma solução de contingência em casos de falha
+- Retry: estipula um número de retentativas, com base em critérios.
+- Bulkhead: isola falhas parciais, enquanto o restante do serviço ainda pode funcionar.
+- Circuit Breaker: com base em critérios, executa metodos alternativos, afim de evitar a degradação do sistema causada pela sobrecarga.
+- asynchronous: permite invocar uma operação assíncrona.
