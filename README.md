@@ -107,3 +107,15 @@ Existem 2 formas de uso do panache:
   <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
 </dependency>
 ```    
+
+##### Metrics
+Algumas métrics configuraveis:
+- @Counted - conta o número de requisições foram efetuads.
+- Endpoint que retorna todas as métricas: http://localhost:8080/metrics
+- Endpoint que retorna as  métricas das aplicações registradas: http://localhost:8080/metrics/application
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-metrics</artifactId>
+</dependency>
+```
