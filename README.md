@@ -120,3 +120,11 @@ Algumas métrics configuraveis:
   <artifactId>quarkus-smallrye-metrics</artifactId>
 </dependency>
 ```
+
+##### Gerando documentação dos nosso endpoints
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-openapi</artifactId>
+</dependency>
+```    
