@@ -111,6 +111,7 @@ Existem 2 formas de uso do panache:
 ##### Metrics
 Algumas métrics configuraveis:
 - @Counted - conta o número de requisições foram efetuads.
+- @Timed - medi a duraçã do evento.
 - Endpoint que retorna todas as métricas: http://localhost:8080/metrics
 - Endpoint que retorna as  métricas das aplicações registradas: http://localhost:8080/metrics/application
 ```
