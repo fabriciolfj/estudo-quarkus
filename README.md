@@ -82,22 +82,13 @@ Existem 2 formas de uso do panache:
 - oc expose svc/quarkus-hello-okd
 - oc get route quarkus-hello-okd -o jsonpath --template="{.spec.host}" (pegando o endereço virtual)
 
-# Subindo uma aplicação de exemplo no minishift
+##### Endpotins relacionados a saúde da aplicação
+- http://localhost:8080/health/live
+- http://localhost:8080/health/ready
 
-### Passo a passo
-- Crie um namepsace
 ```
-oc new-project quarkus-hibernate
-```
-- Utilize a imagem do postgres ja existente no namespace openshift
-```
-oc get is -n openshift | grep postgresql
-```
-- Criando o pod, com uso da imagem do postgresql
-```
-oc new-app -e POSTGRESQL_USER=quarkus -e POSTGRESQL_PASSWORD=quarkus -e POSTGRESQL_DATABASE=quarkusdb postgresql
-```
-- Faça o build da aplicação
-```
-mvn package -Pnative
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-health</artifactId>
+</dependency>
 ```
