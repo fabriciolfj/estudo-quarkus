@@ -8,10 +8,10 @@ import javax.json.Json;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
-@QuarkusTest
+//@QuarkusTest
 public class CustomerControllerTest {
 
-    @Test
+    //@Test
     public void testCustomerService() {
 
         var obj = Json.createObjectBuilder()
