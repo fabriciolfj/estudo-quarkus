@@ -100,3 +100,10 @@ Existem 2 formas de uso do panache:
 - Bulkhead: isola falhas parciais, enquanto o restante do serviço ainda pode funcionar.
 - Circuit Breaker: com base em critérios, executa metodos alternativos, afim de evitar a degradação do sistema causada pela sobrecarga.
 - asynchronous: permite invocar uma operação assíncrona.
+
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+</dependency>
+```    
