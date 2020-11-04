@@ -92,3 +92,39 @@ Existem 2 formas de uso do panache:
   <artifactId>quarkus-smallrye-health</artifactId>
 </dependency>
 ```
+
+##### Implementando tolerancia a falhas
+- Timeout: define um tempo para chamada do serviço
+- Fallback: providencia uma solução de contingência em casos de falha
+- Retry: estipula um número de retentativas, com base em critérios.
+- Bulkhead: isola falhas parciais, enquanto o restante do serviço ainda pode funcionar.
+- Circuit Breaker: com base em critérios, executa metodos alternativos, afim de evitar a degradação do sistema causada pela sobrecarga.
+- asynchronous: permite invocar uma operação assíncrona.
+
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-fault-tolerance</artifactId>
+</dependency>
+```    
+
+##### Metrics
+Algumas métrics configuraveis:
+- @Counted - conta o número de requisições foram efetuads.
+- @Timed - medi a duraçã do evento.
+- Endpoint que retorna todas as métricas: http://localhost:8080/metrics
+- Endpoint que retorna as  métricas das aplicações registradas: http://localhost:8080/metrics/application
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-metrics</artifactId>
+</dependency>
+```
+
+##### Gerando documentação dos nosso endpoints
+```
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-openapi</artifactId>
+</dependency>
+```    
