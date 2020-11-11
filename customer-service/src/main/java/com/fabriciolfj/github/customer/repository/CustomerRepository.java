@@ -20,11 +20,11 @@ import java.util.concurrent.TimeoutException;
 @ApplicationScoped
 public class CustomerRepository {
 
-    @Timeout(1000)
-    @Fallback(fallbackMethod = "findAllStatic")
-    @Retry(maxRetries = 3, retryOn = {RuntimeException.class, TimeoutException.class})
-    @CircuitBreaker(failOn = {RuntimeException.class}, successThreshold = 5,requestVolumeThreshold = 4, failureRatio = 0.75, delay = 100)
-    @Counted(description = "Customer list count", absolute = true)
+    @Timeout(1000) //fallback
+    @Fallback(fallbackMethod = "findAllStatic") //fallback
+    @Retry(maxRetries = 3, retryOn = {RuntimeException.class, TimeoutException.class}) //fallback
+    @CircuitBreaker(failOn = {RuntimeException.class}, successThreshold = 5,requestVolumeThreshold = 4, failureRatio = 0.75, delay = 100) //metrics
+    @Counted(description = "Customer list count", absolute = true) //metrics
     @Timed(name = "timeCheck", description = "Tempo para listar os clientes", unit = MetricUnits.MILLISECONDS)
     public List<Customer> findAll() {
         //randomSleep();
