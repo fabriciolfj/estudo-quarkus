@@ -1,8 +1,7 @@
-package com.fabriciolfj.github.customer.entity;
+package com.fabriciolfj.github.client.customer.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.json.bind.annotation.JsonbTransient;

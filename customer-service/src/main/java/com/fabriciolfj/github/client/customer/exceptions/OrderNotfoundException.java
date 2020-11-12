@@ -1,4 +1,4 @@
-package com.fabriciolfj.github.customer.exceptions;
+package com.fabriciolfj.github.client.customer.exceptions;
 
 public class OrderNotfoundException extends RuntimeException {
 

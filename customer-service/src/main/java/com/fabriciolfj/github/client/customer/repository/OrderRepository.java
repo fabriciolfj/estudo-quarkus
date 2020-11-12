@@ -1,19 +1,16 @@
-package com.fabriciolfj.github.customer.repository;
+package com.fabriciolfj.github.client.customer.repository;
 
-import com.fabriciolfj.github.customer.entity.Customer;
-import com.fabriciolfj.github.customer.entity.Orders;
-import com.fabriciolfj.github.customer.exceptions.OrderNotfoundException;
+import com.fabriciolfj.github.client.customer.entity.Customer;
+import com.fabriciolfj.github.client.customer.entity.Orders;
+import com.fabriciolfj.github.client.customer.exceptions.OrderNotfoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.faulttolerance.Asynchronous;
 import org.eclipse.microprofile.faulttolerance.Bulkhead;
-import org.eclipse.microprofile.faulttolerance.Fallback;
-import org.eclipse.microprofile.faulttolerance.Timeout;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 

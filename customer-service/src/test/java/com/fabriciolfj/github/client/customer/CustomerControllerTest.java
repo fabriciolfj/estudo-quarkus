@@ -1,4 +1,4 @@
-package com.fabriciolfj.github.customer;
+package com.fabriciolfj.github.client.customer;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Quarkus" name="Quarkus">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -11,6 +16,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="Quarkus (deployment)">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy:1.9.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-vertx-http:1.9.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-security-runtime-spi:1.9.0.Final" level="project" />
@@ -170,5 +182,8 @@
     <orderEntry type="library" name="Maven: io.smallrye:smallrye-health-provided-checks:2.2.3" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonp:1.9.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:jakarta.json:1.1.6" level="project" />
+  </component>
+  <component name="Quarkus Tools">
+    <option name="hash" value="-146067326" />
   </component>
 </module>

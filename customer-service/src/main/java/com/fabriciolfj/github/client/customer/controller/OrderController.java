@@ -1,8 +1,8 @@
-package com.fabriciolfj.github.customer;
+package com.fabriciolfj.github.client.customer.controller;
 
-import com.fabriciolfj.github.customer.entity.Orders;
-import com.fabriciolfj.github.customer.repository.CustomerRepository;
-import com.fabriciolfj.github.customer.repository.OrderRepository;
+import com.fabriciolfj.github.client.customer.entity.Orders;
+import com.fabriciolfj.github.client.customer.repository.CustomerRepository;
+import com.fabriciolfj.github.client.customer.repository.OrderRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

@@ -1,7 +1,7 @@
-package com.fabriciolfj.github.customer.repository;
+package com.fabriciolfj.github.client.customer.repository;
 
-import com.fabriciolfj.github.customer.entity.Customer;
-import com.fabriciolfj.github.customer.exceptions.CustomerNotfoundException;
+import com.fabriciolfj.github.client.customer.entity.Customer;
+import com.fabriciolfj.github.client.customer.exceptions.CustomerNotfoundException;
 import io.quarkus.panache.common.Sort;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;

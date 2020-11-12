@@ -1,4 +1,4 @@
-package com.fabriciolfj.github.customer.config;
+package com.fabriciolfj.github.client.customer.config;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
