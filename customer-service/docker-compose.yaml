@@ -20,3 +20,11 @@ services:
       - "16686:16686"
       - "14268:14268"
       - "9411:9411"
+
+  keycloak: #http://localhost:8080/auth, http://localhost:8080/auth/realms/appsdeveloperblog/account/
+    image: quay.io/keycloak/keycloak:11.0.2
+    environment:
+      KEYCLOAK_USER: "admin"
+      KEYCLOAK_PASSWORD: "admin"
+    ports:
+      - 8080:8080

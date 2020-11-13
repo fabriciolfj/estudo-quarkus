@@ -7,6 +7,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -24,6 +25,7 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @GET
+    @RolesAllowed("user")
     @Operation(operationId = "all", description = "Getting All customers")
     @APIResponse(responseCode = "200", description = "Successful response.")
     public List<Customer> findAll() {
@@ -37,6 +39,7 @@ public class CustomerController {
     }
 
     @POST
+    @RolesAllowed("admin")
     public Response create(@Parameter(description = "The new customer", required = true) final Customer customer) {
         customerRepository.add(customer);
         return Response.status(201).build();
@@ -44,12 +47,14 @@ public class CustomerController {
 
     @PUT
     @Path("{id}")
+    @RolesAllowed("admin")
     public Response update(@Parameter(description = "The customer to update", required = true) final Customer customer, @PathParam("id") final Long id) {
         customerRepository.updateCustomer(customer, id);
         return Response.status(201).build();
     }
 
     @DELETE
+    @RolesAllowed("admin")
     public Response delete(@Parameter(description = "then customer to delete", required = true) @QueryParam("id") final Long id) {
         customerRepository.deleteCustomer(id);
         return Response.status(204).build();
