@@ -128,3 +128,6 @@ Algumas métrics configuraveis:
   <artifactId>quarkus-smallrye-openapi</artifactId>
 </dependency>
 ```    
+
+###### Segurança
+- Primeiro utilizaremos o elytron, um lib que realiza um processo de segurança mais simplista.
