@@ -131,3 +131,22 @@ Algumas métrics configuraveis:
 
 ###### Segurança
 - Primeiro utilizaremos o elytron, um lib que realiza um processo de segurança mais simplista.
+- keycloak, uma forma mais robusca de assegurar seus serviços, em suma eles validarão os tokens recebidos nele a cada requisição. Mais algumas features, como:
+  - Client adapters
+  - Single Sign-On (SSO)
+  - Identity management and social login
+  - Standard protocols (OpenID connect or SAML) : openid -> é baseado em oauth2, ou seja, o usuario através do aplicativo cliente consegui se autenticar do servidor de autorização, que este lhe proporcionará um token que fará uso nas chamadas do serviços. SAML -> uma forma de provedores passarem as credenciais de autorização para os provedores de serviços.
+  - Console admin
+  - Gerenciamento de contas de usuário.
+  
+- Dependëncias:
+```
+<dependency>
+   <groupId>io.quarkus</groupId>
+   <artifactId>quarkus-keycloak-authorization</artifactId>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-oidc</artifactId>
+</dependency>
+```
