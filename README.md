@@ -179,3 +179,6 @@ quarkus.http.ssl.certificate.key-store-file=/path/keystore.jks
 quarkus.http.ssl.certificate.key-store-password=password
 ```
 - Por fim, podemos especificar a porta usada pelo servidor undertow, para vincular o protocolo https.
+```
+quarkus.http.ssl-port=8443
+```
