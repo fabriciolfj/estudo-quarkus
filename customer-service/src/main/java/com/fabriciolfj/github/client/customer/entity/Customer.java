@@ -26,7 +26,7 @@ public class Customer extends PanacheEntityBase {
             allocationSize = 1,
             initialValue = 1
     )
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerRSequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerSequence")
     public Long id;
 
     @Column(length = 40)
