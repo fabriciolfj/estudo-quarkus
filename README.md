@@ -175,4 +175,7 @@ quarkus.http.ssl.certificate.key-file=/path/key.pem
 - Podemos gerar um certificado pelo keystore tambémÇ
 ```
 keytool -genkey -keyalg RSA -alias quarkus -keystore keystore.jks -storepass password -validity 365 -keysize 2048
+quarkus.http.ssl.certificate.key-store-file=/path/keystore.jks
+quarkus.http.ssl.certificate.key-store-password=password
 ```
+- Por fim, podemos especificar a porta usada pelo servidor undertow, para vincular o protocolo https.
