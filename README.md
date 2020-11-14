@@ -120,6 +120,16 @@ Algumas métrics configuraveis:
   <artifactId>quarkus-smallrye-metrics</artifactId>
 </dependency>
 ```
+##### Health
+- Para habiltiar o pontos de saúde da nossa aplicação.
+
+```
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+http://localhost:8081/health
+```
 
 ##### Gerando documentação dos nosso endpoints
 ```
@@ -127,6 +137,8 @@ Algumas métrics configuraveis:
   <groupId>io.quarkus</groupId>
   <artifactId>quarkus-smallrye-openapi</artifactId>
 </dependency>
+
+http://localhost:8081/swagger-ui/index.html
 ```    
 
 ###### Segurança
@@ -149,4 +161,37 @@ Algumas métrics configuraveis:
   <groupId>io.quarkus</groupId>
   <artifactId>quarkus-oidc</artifactId>
 </dependency>
+```
+
+- Configurando o serviço para uso dos recursos de token jwt.
+obs: Antes retire as dependências do keycloak e adicione a abaixo:
+```
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt</artifactId>
+    </dependency>
+```
+
+###### Configurando uma comunicação https:
+- Gere o certificado autoassinado .pem por exemplo:
+```
+openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+```
+- Referencie o certificado nas propriedades do serviço.
+
+```
+quarkus.http.ssl.certificate.file=/path/cert.pem
+quarkus.http.ssl.certificate.key-file=/path/key.pem
+```
+
+- Podemos gerar um certificado pelo keystore tambémÇ
+```
+keytool -genkey -keyalg RSA -alias quarkus -keystore keystore.jks -storepass password -validity 365 -keysize 2048
+quarkus.http.ssl.certificate.key-store-file=/path/keystore.jks
+quarkus.http.ssl.certificate.key-store-password=password
+```
+- Por fim, podemos especificar a porta usada pelo servidor undertow, para vincular o protocolo https.
+```
+quarkus.http.ssl-port=8443
+https://localhost:8443/customers
 ```
