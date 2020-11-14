@@ -150,3 +150,12 @@ Algumas métrics configuraveis:
   <artifactId>quarkus-oidc</artifactId>
 </dependency>
 ```
+
+- Configurando o serviço para uso dos recursos de token jwt.
+obs: Antes retire as dependências do keycloak e opendid e adicione a abaixo:
+```
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt</artifactId>
+    </dependency>
+```
