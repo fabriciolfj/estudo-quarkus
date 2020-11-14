@@ -159,3 +159,20 @@ obs: Antes retire as dependências do keycloak e adicione a abaixo:
       <artifactId>quarkus-smallrye-jwt</artifactId>
     </dependency>
 ```
+
+###### Configurando uma comunicação https:
+- Gere o certificado autoassinado .pem por exemplo:
+```
+openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+```
+- Referencie o certificado nas propriedades do serviço.
+
+```
+quarkus.http.ssl.certificate.file=/path/cert.pem
+quarkus.http.ssl.certificate.key-file=/path/key.pem
+```
+
+- Podemos gerar um certificado pelo keystore tambémÇ
+```
+keytool -genkey -keyalg RSA -alias quarkus -keystore keystore.jks -storepass password -validity 365 -keysize 2048
+```
