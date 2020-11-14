@@ -120,6 +120,16 @@ Algumas métrics configuraveis:
   <artifactId>quarkus-smallrye-metrics</artifactId>
 </dependency>
 ```
+##### Health
+- Para habiltiar o pontos de saúde da nossa aplicação.
+
+```
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+http://localhost:8081/health
+```
 
 ##### Gerando documentação dos nosso endpoints
 ```
