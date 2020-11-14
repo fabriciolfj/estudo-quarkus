@@ -152,7 +152,7 @@ Algumas métrics configuraveis:
 ```
 
 - Configurando o serviço para uso dos recursos de token jwt.
-obs: Antes retire as dependências do keycloak e opendid e adicione a abaixo:
+obs: Antes retire as dependências do keycloak e adicione a abaixo:
 ```
     <dependency>
       <groupId>io.quarkus</groupId>
