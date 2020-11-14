@@ -127,6 +127,8 @@ Algumas métrics configuraveis:
   <groupId>io.quarkus</groupId>
   <artifactId>quarkus-smallrye-openapi</artifactId>
 </dependency>
+
+http://localhost:8081/swagger-ui/index.html
 ```    
 
 ###### Segurança
