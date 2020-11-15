@@ -195,3 +195,8 @@ quarkus.http.ssl.certificate.key-store-password=password
 quarkus.http.ssl-port=8443
 https://localhost:8443/customers
 ```
+
+###### Gerando a lista de configurações possíveis (application.properties) com base nas dependências do projeto.
+```
+mvn quarkus:generate-config
+```
