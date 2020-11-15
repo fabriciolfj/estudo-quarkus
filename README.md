@@ -200,3 +200,13 @@ https://localhost:8443/customers
 ```
 mvn quarkus:generate-config
 ```
+ ###### Mudando a porta da aplicação
+ - Opção 1:
+ ```
+ java -Dquarkus.http.port=8180 app.jar
+ ```
+ 
+ -Opção 2 (via variável de ambiente):
+ ```
+ export QUARKUS_HTTP_PORT=8180
+ ```
