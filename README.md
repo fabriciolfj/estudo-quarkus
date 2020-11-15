@@ -195,3 +195,41 @@ quarkus.http.ssl.certificate.key-store-password=password
 quarkus.http.ssl-port=8443
 https://localhost:8443/customers
 ```
+
+###### Gerando a lista de configurações possíveis (application.properties) com base nas dependências do projeto.
+```
+mvn quarkus:generate-config
+```
+ ###### Mudando a porta da aplicação
+ - Opção 1:
+ ```
+ java -Dquarkus.http.port=8180 app.jar
+ ```
+ 
+ -Opção 2 (via variável de ambiente):
+ ```
+ export QUARKUS_HTTP_PORT=8180
+ ```
+ 
+ - Opção 3, utilizando uma configuração externa:
+   - Implemente a classe ConfigSource
+   - A classe implementada tem que ter seupath no arquivo META-INF/services/org.eclipse.microprofile.config.spi.ConfigSource e valor com.fabriciolfj.github.client.customer.config.FileConfigSource.
+   - Exemplo de uso:
+``` 
+@ConfigProperty(name = "greeting")
+private String greeting;
+```
+   
+###### Uso de profiles.
+- Para separar as configurações em profiles, inicie-as com:
+  - %dev ou
+  - %test ou
+  - %prod
+
+- Para iniciar o quarkus apontando para as configurações de um profile específico:
+```
+mvn quarkus:dev
+mvn quarkus:test
+mvn quarkus:prod
+```
+  
