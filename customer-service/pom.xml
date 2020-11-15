@@ -52,6 +52,8 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-keycloak-authorization</artifactId>
     </dependency> -->
+
+    <!-- para agilizar o desenv, mas deve-se utilizar essa dependencia -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt</artifactId>

@@ -2,6 +2,8 @@ package com.fabriciolfj.github.client.customer.controller;
 
 import com.fabriciolfj.github.client.customer.entity.Customer;
 import com.fabriciolfj.github.client.customer.repository.CustomerRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
@@ -14,6 +16,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+@Slf4j
 @Path("customers")
 @ApplicationScoped
 @Produces("application/json")
@@ -24,11 +27,15 @@ public class CustomerController {
     @Inject
     private CustomerRepository customerRepository;
 
+    @ConfigProperty(name = "greeting")
+    private String greeting;
+
     @GET
     //@RolesAllowed("user")
     @Operation(operationId = "all", description = "Getting All customers")
     @APIResponse(responseCode = "200", description = "Successful response.")
     public List<Customer> findAll() {
+        log.info(greeting);
         return customerRepository.findAll();
     }
 
