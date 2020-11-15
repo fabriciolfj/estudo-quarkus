@@ -220,3 +220,16 @@ mvn quarkus:generate-config
 private String greeting;
 ```
    
+###### Uso de profiles.
+- Para separar as configurações em profiles, inicie-as com:
+  - %dev ou
+  - %test ou
+  - %prod
+
+- Para iniciar o quarkus apontando para as configurações de um profile específico:
+```
+mvn quarkus:dev
+mvn quarkus:test
+mvn quarkus:prod
+```
+  
