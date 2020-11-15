@@ -210,3 +210,13 @@ mvn quarkus:generate-config
  ```
  export QUARKUS_HTTP_PORT=8180
  ```
+ 
+ - Opção 3, utilizando uma configuração externa:
+   - Implemente a classe ConfigSource
+   - A classe implementada tem que ter seupath no arquivo META-INF/services/org.eclipse.microprofile.config.spi.ConfigSource e valor com.fabriciolfj.github.client.customer.config.FileConfigSource.
+   - Exemplo de uso:
+``` 
+@ConfigProperty(name = "greeting")
+private String greeting;
+```
+   
