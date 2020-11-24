@@ -243,6 +243,7 @@ mvn quarkus:prod
 ###### Alguns componentes do Vertx.
 - Verticles: unidade básica de implantação
 - Events bus: ferramenta principal que permite que os verticles se comuniquem.
+- rxjava: um lib que implementa vários operadores reativos, como: observable, subscribe, single.
 
 ###### Formas de comunicação
 - Point-to-Point: as mensagens são encaminhadas para apenas um dos manipuladores registrados.
