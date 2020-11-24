@@ -233,9 +233,18 @@ mvn quarkus:test
 mvn quarkus:prod
 ```
   
-###### Vertx
+##### Vertx
 - É um conjunto de ferramentos, ou jars, que lhe auxilia no desenvolvimento de aplicações no modelo reativo, no mais:
   - Responsivo: um sistema reativo precisa ser capaz de lidar com solicitações em um tempo razoável.
   - Resiliente: diante de falhas, o sistema continue funcionando.
   - Elástico: Um sistema reativo deve ser capaz de ser escalado, conforme a demanda.
   - Orientado por mensagens: o sistema reativo interagem entre si, por mensagens.
+  
+###### Alguns componentes do Vertx.
+- Verticles: unidade básica de implantação
+- Events bus: ferramenta principal que permite que os verticles se comuniquem.
+
+###### Formas de comunicação
+- Point-to-Point: as mensagens são encaminhadas para apenas um dos manipuladores registrados.
+- Request-response:  similar ao point-to-point, exceto que inclui um manipulador de resposta opcional, que proporciona ao destinatário a possibilidade de responder ou não. 
+- Publish-subscribe: ao publicar a mensagem, o event-bus envia a todos os manipuladores registrados.
