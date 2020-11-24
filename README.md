@@ -233,3 +233,9 @@ mvn quarkus:test
 mvn quarkus:prod
 ```
   
+###### Vertx
+- É um conjunto de ferramentos, ou jars, que lhe auxilia no desenvolvimento de aplicações no modelo reativo, no mais:
+  - Responsivo: um sistema reativo precisa ser capaz de lidar com solicitações em um tempo razoável.
+  - Resiliente: diante de falhas, o sistema continue funcionando.
+  - Elástico: Um sistema reativo deve ser capaz de ser escalado, conforme a demanda.
+  - Orientado por mensagens: o sistema reativo interagem entre si, por mensagens.
