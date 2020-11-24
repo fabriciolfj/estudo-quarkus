@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.concurrent.CompletionStage;
 
 @Slf4j
 @Path("customers")
@@ -29,6 +30,20 @@ public class CustomerController {
 
     @ConfigProperty(name = "greeting")
     private String greeting;
+
+    @GET
+    @Path("writefile")
+    @Produces("text/plain")
+    public CompletionStage<String> writeFile() {
+        return customerRepository.writeFile();
+    }
+
+    @GET
+    @Path("readfile")
+    @Produces("application/json")
+    public CompletionStage<String>  readFile() {
+        return customerRepository.readFile();
+    }
 
     @GET
     //@RolesAllowed("user")
