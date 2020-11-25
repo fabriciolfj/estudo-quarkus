@@ -2,6 +2,7 @@ package com.fabriciolfj.github.client.customer.controller;
 
 import com.fabriciolfj.github.client.customer.entity.Customer;
 import com.fabriciolfj.github.client.customer.repository.CustomerRepository;
+import io.vertx.axle.core.eventbus.EventBus;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -9,7 +10,6 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -30,6 +30,18 @@ public class CustomerController {
 
     @ConfigProperty(name = "greeting")
     private String greeting;
+
+    @Inject
+    private EventBus eventBus;
+
+    @GET
+    @Path("/call")
+    @Produces("text/plain")
+    public CompletionStage<String> call(@QueryParam("id") final Long customerId) {
+        return eventBus.<String>send("callcustomer", customerRepository.findById(customerId))
+                .thenApply(s -> s.body())
+                .exceptionally(Throwable::getMessage);
+    }
 
     @GET
     @Path("writefile")

@@ -3,12 +3,15 @@ package com.fabriciolfj.github.client.customer.controller;
 import com.fabriciolfj.github.client.customer.entity.Orders;
 import com.fabriciolfj.github.client.customer.repository.CustomerRepository;
 import com.fabriciolfj.github.client.customer.repository.OrderRepository;
+import io.vertx.axle.core.eventbus.EventBus;
+import io.vertx.core.eventbus.Message;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.concurrent.CompletionStage;
 
 @Path("orders")
 @ApplicationScoped
@@ -26,6 +29,7 @@ public class OrderController {
     public List<Orders> getAll(@QueryParam("customerId") final Long customerId) {
         return orderRepository.findAll(customerId);
     }
+
 
     @POST
     @Path("/{customer}")

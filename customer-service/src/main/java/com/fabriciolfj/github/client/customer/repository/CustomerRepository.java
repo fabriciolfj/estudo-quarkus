@@ -21,6 +21,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
@@ -46,19 +47,19 @@ public class CustomerRepository {
 
     public CompletionStage<String> readFile() {
         var future = new CompletableFuture<String>();
-        long start = System.nanoTime();
+        var sb = new StringBuffer();
 
-        vertx.setTimer(100, l -> {
-            long duraton = TimeUnit.MILLISECONDS.convert(System.nanoTime() - start, TimeUnit.NANOSECONDS);
-            vertx.fileSystem().readFile(path, ar -> {
-                if (ar.succeeded()) {
-                    var response= ar.result().toString("UTF-8");
-                    future.complete(response);
-                } else {
-                    future.complete("Cannot readthe file: " + ar.cause().getMessage());
-                }
-            });
-        });
+        vertx.fileSystem().rxReadFile(path)
+                .flatMapObservable(buffer -> Observable.fromArray(buffer.toString().split(
+                        System.lineSeparator())))
+        .skip(1)
+        .map(s -> s.split(","))
+        .map(data -> new Customer(Long.parseLong(data[0]), data[1], data[2], Collections.emptyList()))
+        .subscribe(
+                data -> sb.append(data.toString()),
+                error -> System.err.println(error),
+                () -> future.complete(sb.toString())
+        );
 
         return future;
     }

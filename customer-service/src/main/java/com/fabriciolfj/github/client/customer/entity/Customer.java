@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 //@Cacheable
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
